@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#b9c8db",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#a23600",
+                        "primary": "#003d9a",
+                        "surface-container-low": "#f1f4f6",
+                        "on-primary-fixed": "#001847",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#566475",
+                        "surface": "#f7fafc",
+                        "on-background": "#181c1e",
+                        "surface-tint": "#0056d1",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "background": "#f7fafc",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-error": "#ffffff",
+                        "secondary": "#526071",
+                        "secondary-container": "#d2e1f5",
+                        "surface-bright": "#f7fafc",
+                        "on-tertiary-fixed": "#380d00",
+                        "outline": "#737685",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#d5e4f8",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-dim": "#d7dadc",
+                        "on-surface-variant": "#434654",
+                        "tertiary-fixed": "#ffdbcf",
+                        "surface-container-high": "#e5e9eb",
+                        "surface-container": "#ebeef0",
+                        "on-tertiary-fixed-variant": "#802900",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "on-surface": "#181c1e",
+                        "inverse-on-surface": "#eef1f3",
+                        "inverse-primary": "#b2c5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "primary-container": "#0053ca",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7a2700",
+                        "on-primary-fixed-variant": "#0040a1",
+                        "on-secondary-fixed": "#0e1d2b"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #003d9a 0%, #0053ca 100%);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        body {
+            background-color: #f7fafc;
+            color: #181c1e;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+    <!-- Auth Layout Wrapper -->
+    <main
+        class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm">
+        <!-- Imagery Section (The Kinetic Gallery Aesthetic) -->
+        <section class="hidden lg:block relative overflow-hidden h-full min-h-[700px]">
+            <div class="absolute inset-0 bg-slate-900/20 z-10"></div>
+            <img alt="Luxury sedan in showroom" class="absolute inset-0 w-full h-full object-cover"
+                data-alt="Modern luxury electric sedan in a minimalist concrete gallery with dramatic side lighting and soft blue reflections on metallic surfaces"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBthYnF3oemGKbzE3fTx8RXycTkOXU--quZmsDnvEKI9Nl2sIRdZtpulOI_LknJ3pWl5toCDbKh8QLYha6hgrzqIoxIZK9Kfc7KuS6mlDYqikJhDs1SmfS5R5ldio7IbVRWbQSNUh2wD8PrrX1Nc-3E0MyMjKTT6WTKeIn8zDriHVlnQEjemp8-gmLAmvWbM2n2awaYZxVluaQs8WeH-sgaf8zI84YKdAGsHjih1RkMd7H_u1fRk4GZbMlN5o-oGz9mVim3vFZO3NlV" />
+            <div class="absolute bottom-0 left-0 p-12 z-20 w-full bg-gradient-to-t from-slate-950/80 to-transparent">
+                <div class="space-y-4">
+                    <span class="text-white/70 font-label tracking-widest text-xs uppercase font-bold">The Kinetic
+                        Gallery</span>
+                    <h2 class="text-white font-headline text-4xl font-extrabold leading-tight tracking-tighter">
+                        ENGINEERED FOR THE DRIVEN.</h2>
+                    <p class="text-white/80 font-body max-w-sm">Experience a premium concierge service for high-end
+                        automotive enthusiasts.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Form Section -->
+        <section
+            class="flex flex-col justify-center items-center px-6 py-12 lg:px-16 lg:py-24 bg-surface-container-lowest">
+            <div class="w-full max-w-md space-y-10">
+                <!-- Brand Anchor -->
+                <div class="flex flex-col space-y-2">
+                    <div class="flex items-center space-y-1">
+                        <span
+                            class="text-2xl font-black italic tracking-tighter text-blue-800 font-headline uppercase">KINETIC</span>
+                    </div>
+                </div>
+                <!-- Header -->
+                <div class="space-y-3">
+                    <h1 class="text-3xl lg:text-4xl font-headline font-extrabold tracking-tight text-on-surface">Welcome
+                        Back</h1>
+                    <p class="text-on-surface-variant font-body leading-relaxed">Log in to manage your cars, update
+                        listings, and explore new offers.</p>
+                </div>
+                <!-- Login Form -->
+                <form class="space-y-6" method="post">
+                    {% csrf_token %}
+                    <div class="space-y-4">
+                        <!-- Email Field -->
+                        <div class="group">
+                            <label class="block text-sm font-semibold text-on-surface-variant mb-2 ml-1"
+                                for="email">Username</label>
+                            <div class="relative">
+                                <span
+                                    class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">mail</span>
+                                <input
+                                    class="w-full pl-12 pr-4 py-4 bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all duration-200 text-on-surface placeholder:text-outline"
+                                    id="Username" name="Username" placeholder="Muhammadsodiq" required="" type="Username" />
+                            </div>
+                        </div>
+                        <!-- Password Field -->
+                        <div class="group">
+                            <div class="flex justify-between items-center mb-2 ml-1">
+                                <label class="block text-sm font-semibold text-on-surface-variant"
+                                    for="password">Password</label>
+                                <a class="text-xs font-semibold text-primary hover:underline" href="#">Forgot
+                                    password?</a>
+                            </div>
+                            <div class="relative">
+                                <span
+                                    class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">lock</span>
+                                <input
+                                    class="w-full pl-12 pr-4 py-4 bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all duration-200 text-on-surface placeholder:text-outline"
+                                    id="password" name="password" placeholder="••••••••" required="" type="password" />
+                                <button
+                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-outline hover:text-primary transition-colors"
+                                    type="button">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Remember Me & Checkbox -->
+                    <div class="flex items-center space-x-2 px-1">
+                        <input class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"
+                            id="remember" type="checkbox" />
+                        <label class="text-sm font-medium text-on-surface-variant" for="remember">Keep me logged
+                            in</label>
+                    </div>
+                    <!-- Submit Button -->
+                     <a href="{% url 'home_page' %}">
+                    <button
+                        class="kinetic-gradient w-full py-4 px-6 text-on-primary font-headline font-bold rounded-lg shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-[0.98] transition-all duration-200 flex items-center justify-center space-x-2"
+                        type="submit">
+                        <span>Login</span>
+                        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                    </button></a>
+                </form>
+                <!-- Social Login Alternative -->
+                <div class="relative py-4">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-outline-variant/30"></div>
+                    </div>
+                    <div class="relative flex justify-center text-xs uppercase tracking-widest font-bold">
+                        <span class="bg-surface-container-lowest px-4 text-outline">Or continue with</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <button
+                        class="flex items-center justify-center space-x-2 py-3 px-4 bg-surface-container-low hover:bg-surface-container-high rounded-lg transition-colors border-none group">
+                        <img alt="Google" class="w-5 h-5 grayscale group-hover:grayscale-0 transition-all"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuACMvkNA_jobUxfZxuMK8EMKWv4GPl1JMXZKmHxUVbtyPgqTEA05Kqqk5fQ7CGDbt91hBiYNhGVbeJOHu9Dk4LvFXhPrK_Fzciuzomnz0iS9Ej324u96b4DY5arLpI0OnTvN5BKM4iiJAjkFAnivVP8XWnf8qza0S_htKShiqONewsadH9YksXHMTsO4feqNwncJG2ecCa_Kfs6evJjprlKSK3ELObsqEZGsYbQ7_PG1D8LqXPfD2p4uD4yMwFvL6JCp8EQu7zRmxmT" />
+                        <span class="text-sm font-bold text-on-surface-variant">Google</span>
+                    </button>
+                    <button
+                        class="flex items-center justify-center space-x-2 py-3 px-4 bg-surface-container-low hover:bg-surface-container-high rounded-lg transition-colors border-none group">
+                        <span
+                            class="material-symbols-outlined text-on-surface-variant group-hover:text-black transition-colors"
+                            data-weight="fill">ios</span>
+                        <span class="text-sm font-bold text-on-surface-variant">Apple</span>
+                    </button>
+                </div>
+                <!-- Footer Link -->
+                <p class="text-center font-body text-sm text-on-surface-variant">
+                    Don’t have an account?
+                    <a class="text-primary font-bold hover:underline ml-1" href="{% url 'register' %}">Register here.</a>
+                </p>
+            </div>
+        </section>
+    </main>
+    <!-- Support Link Floating -->
+    <footer class="mt-8 text-outline text-xs font-medium space-x-6 flex items-center">
+        <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+        <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+        <a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+    </footer>
+</body>
+
+</html>

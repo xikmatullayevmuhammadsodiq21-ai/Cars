@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KINETIC | Car Detail</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#b9c8db",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#a23600",
+                        "primary": "#003d9a",
+                        "surface-container-low": "#f1f4f6",
+                        "on-primary-fixed": "#001847",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#566475",
+                        "surface": "#f7fafc",
+                        "on-background": "#181c1e",
+                        "surface-tint": "#0056d1",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "background": "#f7fafc",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-error": "#ffffff",
+                        "secondary": "#526071",
+                        "secondary-container": "#d2e1f5",
+                        "surface-bright": "#f7fafc",
+                        "on-tertiary-fixed": "#380d00",
+                        "outline": "#737685",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#d5e4f8",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-dim": "#d7dadc",
+                        "on-surface-variant": "#434654",
+                        "tertiary-fixed": "#ffdbcf",
+                        "surface-container-high": "#e5e9eb",
+                        "surface-container": "#ebeef0",
+                        "on-tertiary-fixed-variant": "#802900",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "on-surface": "#181c1e",
+                        "inverse-on-surface": "#eef1f3",
+                        "inverse-primary": "#b2c5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "primary-container": "#0053ca",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7a2700",
+                        "on-primary-fixed-variant": "#0040a1",
+                        "on-secondary-fixed": "#0e1d2b"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+    <!-- Top Navigation Bar -->
+    <nav
+        class="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none z-50">
+        <div class="flex items-center gap-4">
+            <span
+                class="material-symbols-outlined text-slate-500 hover:bg-slate-100 p-2 rounded-full cursor-pointer transition-colors"
+                data-icon="menu">menu</span>
+            <span
+                class="text-2xl font-black italic tracking-tighter text-blue-800 dark:text-blue-400 font-headline">KINETIC</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-blue-700 dark:text-blue-400 font-bold font-manrope" href="{% url 'home_page' %}">Home</a>
+            <a class="text-slate-500 dark:text-slate-400 hover:bg-slate-100 px-3 py-1 rounded-lg transition-colors"
+                href="{% url 'car_list' %}">Explore</a>
+        </div>
+        <div class="flex items-center gap-3">
+            <div
+                class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border-2 border-primary-container/20">
+                <img class="w-full h-full object-cover"
+                    data-alt="close-up portrait of a professional man with a friendly expression in studio lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvxfA_SUrxwvZRB83acN7TnSpr1S11AOBII1Ex5BUZA_qKJkZ2C_GSudRLVS1vsWV5Y5gOZB2FxAKPaqVoE9-DZxE3LhG-6yYI1HSe01JJPUVjNxFApBMwJ_CH_hbJyBVwN37dP7BNc9_vMZ-i6SjDAjYa4wBEIWPOrIFZ87RBir6Gda2GRg6B6ts-uyT5uZrCbiUD3vDpWtZEzjnnGGn75I0EhlVoE67EFCiiH8N82NyhVXaLcJePUlgZakaky7WBQlIUPwDl9fZH" />
+            </div>
+        </div>
+    </nav>
+    <main class="pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto">
+        <!-- Breadcrumb & Actions -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            <div>
+                <a href="{% url 'car_list' %}">
+                    <button
+                        class="flex items-center gap-2 text-secondary font-medium hover:text-primary transition-colors group">
+                        <span class="material-symbols-outlined text-sm group-active:-translate-x-1 transition-transform"
+                            data-icon="arrow_back">arrow_back</span>
+                        <span>Back to List</span>
+                    </button></a>
+            </div>
+            <div class="flex gap-3">
+                <button
+                    class="bg-surface-container-high text-primary px-6 py-2.5 rounded-lg font-semibold flex items-center gap-2 active:scale-95 duration-200">
+                    <span class="material-symbols-outlined text-[20px]" data-icon="edit">edit</span>
+                    Edit
+                </button>
+                <button
+                    class="bg-error-container text-on-error-container px-6 py-2.5 rounded-lg font-semibold flex items-center gap-2 active:scale-95 duration-200">
+                    <span class="material-symbols-outlined text-[20px]" data-icon="delete">delete</span>
+                    Delete
+                </button>
+            </div>
+        </div>
+        <!-- Hero Section: Dynamic Title & Pricing -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 items-end">
+            <div class="lg:col-span-8">
+                <h1
+                    class="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-[0.9] mb-4">
+                    2024 PORSCHE <br />TAYCAN TURBO S
+                </h1>
+                <p class="text-on-surface-variant text-lg max-w-2xl font-body leading-relaxed">
+                    Here you can find full details about this car including price, description, and image. Experience
+                    the pinnacle of electric performance and luxury.
+                </p>
+            </div>
+            <div class="lg:col-span-4 lg:text-right">
+                <div class="inline-block px-8 py-4 bg-primary text-on-primary rounded-xl shadow-2xl shadow-primary/20">
+                    <span class="block text-sm font-label uppercase tracking-widest opacity-80 mb-1">Price</span>
+                    <span class="text-4xl md:text-5xl font-headline font-black">$194,900</span>
+                </div>
+            </div>
+        </div>
+        <!-- Image Gallery Bento Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[400px] md:h-[600px] mb-12">
+            <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-xl">
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    data-alt="sleek modern electric sports car in metallic white parked on a coastal road at sunset with dramatic lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8nNLmjH8LfJDiS6CkiMFY_MwY9flOtGLoU8lCaZay66mNUxcGhv7LJkGT5cxeoWasiIqbP5vdUoJnqJBSAll7HEGIt30prTybPpQg6OZ0Q_2Bzk9IRJ7auineKM002YP8d-aSiZX35OzMiAShee4Uvizab-uutQI18KVxxqYqd2SQGXgrQ77ZbdL-eD_DUwfvy-zsWhJ0bVoX86JP_HL8VujGPNEDfMjb0bQroqQcYy34e-xZjpDnujrwP0drGmLuITjAj9j_A7dz" />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                </div>
+            </div>
+            <div class="md:col-span-2 relative group overflow-hidden rounded-xl">
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    data-alt="luxury car interior close-up focusing on digital dashboard and premium leather steering wheel with soft ambient blue lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNTdxMBw_GgeBeFI21sxIKr2YYzeMoGU1bp94LvDyjnCw_Mcnfxc94nRX5AeNJ28SaD095yt0vMdyaHgv_7H3bCVePymqXJm847bVFogTXol3l5xpsS2eXMlAmNckFnlbVUkMx7bkovCK_gquNRClBAeS-z8LRdYeu8d-sGT78NiF0APtksyRJCFIf9HgalQ-4MPhA2tTa6Lg4QKa6TxPy0g9E7uX0fTHhihcXGjGd28lGsl4fI8Pim7AKX-Xim8tIywMX2DA5LO7c" />
+            </div>
+            <div class="relative group overflow-hidden rounded-xl">
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    data-alt="close-up of high-performance car wheel rim and yellow brake caliper with sharp focus and professional lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoO5RaVU9hjI1CnRmBzmKOthgrftPnfqGEz5Wbk2g0ZBeLWPUBC4LcNipmmbvNBz7bp3l5rR8PXJclWmYFqtDSju54KfKOpCH-qjI6JwIzzGiXEKmZOZ041mtp1ivygCZTp2vFHo0pUZSA35wi2muRznKQEJzP9aiX_ua3v-GxKaCibDPU7RbLnNYQAmWrDA3MsFng2tjpFZoBZ3r4AfQmj0RYDJx5DsTkTOhMDn5wzDrs5qgEc7K5x0fNhgBOQEqZ7-OKTnwjAU4f" />
+            </div>
+            <div
+                class="relative group overflow-hidden rounded-xl bg-surface-container-high flex items-center justify-center cursor-pointer hover:bg-surface-container-highest transition-colors">
+                <div class="text-center">
+                    <span class="material-symbols-outlined text-4xl text-primary" data-icon="grid_view">grid_view</span>
+                    <span class="block font-bold mt-2 text-primary text-sm uppercase tracking-wider">View All 24
+                        Photos</span>
+                </div>
+            </div>
+        </section>
+        <!-- Specifications & Description Asymmetric Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <!-- Details Column -->
+            <div class="lg:col-span-7 space-y-12">
+                <section>
+                    <h3 class="text-sm font-label uppercase tracking-[0.2em] text-primary font-bold mb-6">Description
+                    </h3>
+                    <div class="prose prose-slate max-w-none">
+                        <p class="text-on-surface-variant text-xl leading-relaxed">
+                            This immaculate 2024 Taycan Turbo S represents the future of driving. Featuring a pristine
+                            Chalk finish over an Agate Grey leather interior, this vehicle comes equipped with the
+                            Performance Battery Plus, delivering relentless acceleration and surgical handling. Every
+                            detail has been curated for the discerning enthusiast.
+                        </p>
+                    </div>
+                </section>
+                <!-- Spec Grid from Design System -->
+                <section>
+                    <h3 class="text-sm font-label uppercase tracking-[0.2em] text-primary font-bold mb-6">Technical
+                        Specifications</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="bg-surface-container-low p-6 rounded-xl">
+                            <span class="material-symbols-outlined text-primary mb-3" data-icon="speed">speed</span>
+                            <span class="block text-xs font-label text-on-surface-variant uppercase mb-1">0-60
+                                mph</span>
+                            <span class="block text-xl font-headline font-bold">2.6s</span>
+                        </div>
+                        <div class="bg-surface-container-low p-6 rounded-xl">
+                            <span class="material-symbols-outlined text-primary mb-3"
+                                data-icon="electric_bolt">electric_bolt</span>
+                            <span class="block text-xs font-label text-on-surface-variant uppercase mb-1">Range</span>
+                            <span class="block text-xl font-headline font-bold">246 mi</span>
+                        </div>
+                        <div class="bg-surface-container-low p-6 rounded-xl">
+                            <span class="material-symbols-outlined text-primary mb-3"
+                                data-icon="settings">settings</span>
+                            <span
+                                class="block text-xs font-label text-on-surface-variant uppercase mb-1">Drivetrain</span>
+                            <span class="block text-xl font-headline font-bold">AWD</span>
+                        </div>
+                        <div class="bg-surface-container-low p-6 rounded-xl">
+                            <span class="material-symbols-outlined text-primary mb-3"
+                                data-icon="calendar_today">calendar_today</span>
+                            <span class="block text-xs font-label text-on-surface-variant uppercase mb-1">Year</span>
+                            <span class="block text-xl font-headline font-bold">2024</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- Sidebar Info -->
+            <div class="lg:col-span-5">
+                <div
+                    class="bg-surface-container-lowest border border-outline-variant/10 rounded-3xl p-8 sticky top-28 shadow-xl shadow-slate-200/50">
+                    <div class="flex items-center justify-between mb-8">
+                        <h4 class="text-xl font-headline font-bold">Seller Information</h4>
+                        <span
+                            class="bg-primary/10 text-primary text-[10px] font-bold uppercase px-3 py-1 rounded-full tracking-widest">Verified
+                            Seller</span>
+                    </div>
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container-low">
+                            <img class="w-full h-full object-cover"
+                                data-alt="professional portrait of a man in casual business attire with a neutral background"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEBIW6KNk8toK4_kiOqOn-FPmd5IyY9s-tRtFKVjqMRkjik1S2jMng4MkAYR1v8Xs0B-C4wOl3wb0I24xf9JVO-eqq-RbisTTW9EtgXDZPTfhnTfZzv5XhXnwmShu3un8gMMznbQs32rcOM9kQhF-HDL_2gbb_yCXcaFRbmx4ocagpH4Tgosqxbon1I-5OhZUn-TXkvKtjqrvsDRI4GAIKBnlKKOtF3E0PbGItkteuWGqmIGdmcRwYRJuZ_B7HIy-MZRIY4mDoznxQ" />
+                        </div>
+                        <div>
+                            <p class="text-xs font-label text-on-surface-variant uppercase tracking-wider mb-1">Posted
+                                by</p>
+                            <p class="text-2xl font-headline font-bold leading-tight">Alex Sterling</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center gap-3 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary/60"
+                                data-icon="location_on">location_on</span>
+                            <span class="font-medium">Beverly Hills, CA</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-on-surface-variant">
+                            <span class="material-symbols-outlined text-primary/60"
+                                data-icon="verified_user">verified_user</span>
+                            <span class="font-medium">5.0 Star Rating (128 sales)</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <button
+                            class="w-full bg-primary text-on-primary py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 active:scale-[0.98] transition-all">
+                            Contact Seller
+                        </button>
+                        <button
+                            class="w-full bg-surface-container-high text-primary py-4 rounded-xl font-bold text-lg active:scale-[0.98] transition-all">
+                            Make an Offer
+                        </button>
+                    </div>
+                    <p class="text-center text-xs text-on-surface-variant mt-6 italic">
+                        Price includes all regional taxes and dealership fees.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Mobile Bottom NavBar (Mobile Only) -->
+    <div
+        class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl border-t border-slate-100 dark:border-slate-800">
+        <div
+            class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-90 transition-transform duration-150">
+            <span class="material-symbols-outlined" data-icon="home">home</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Home</span>
+        </div>
+        <div
+            class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-2xl px-5 py-2 active:scale-90 transition-transform duration-150">
+            <span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Explore</span>
+        </div>
+        <div
+            class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-90 transition-transform duration-150">
+            <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Sell</span>
+        </div>
+        <div
+            class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-90 transition-transform duration-150">
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Profile</span>
+        </div>
+    </div>
+</body>
+
+</html>

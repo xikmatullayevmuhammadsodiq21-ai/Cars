@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Edit Car Information - KINETIC</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#b9c8db",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#a23600",
+                        "primary": "#003d9a",
+                        "surface-container-low": "#f1f4f6",
+                        "on-primary-fixed": "#001847",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#566475",
+                        "surface": "#f7fafc",
+                        "on-background": "#181c1e",
+                        "surface-tint": "#0056d1",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "background": "#f7fafc",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-error": "#ffffff",
+                        "secondary": "#526071",
+                        "secondary-container": "#d2e1f5",
+                        "surface-bright": "#f7fafc",
+                        "on-tertiary-fixed": "#380d00",
+                        "outline": "#737685",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#d5e4f8",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-dim": "#d7dadc",
+                        "on-surface-variant": "#434654",
+                        "tertiary-fixed": "#ffdbcf",
+                        "surface-container-high": "#e5e9eb",
+                        "surface-container": "#ebeef0",
+                        "on-tertiary-fixed-variant": "#802900",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "on-surface": "#181c1e",
+                        "inverse-on-surface": "#eef1f3",
+                        "inverse-primary": "#b2c5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "primary-container": "#0053ca",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7a2700",
+                        "on-primary-fixed-variant": "#0040a1",
+                        "on-secondary-fixed": "#0e1d2b"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .kinetic-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface min-h-screen">
+    <!-- TopAppBar Shell (Suppressed based on transactional intent, but usually visible for identity - keeping it as an Anchor for branding) -->
+    <header
+        class="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-white/80 backdrop-blur-xl z-50 shadow-sm">
+        <div class="flex items-center gap-4">
+            <button class="p-2 hover:bg-slate-100 transition-colors active:scale-95 duration-200 rounded-full">
+                <span class="material-symbols-outlined text-blue-700">arrow_back</span>
+            </button>
+            <span class="text-2xl font-black italic tracking-tighter text-blue-800 font-headline">KINETIC</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="h-10 w-10 rounded-full overflow-hidden bg-surface-container-high border-2 border-primary/10">
+                <img class="w-full h-full object-cover"
+                    data-alt="professional headshot of a smiling male user in high-end studio lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMgTuqoPtMba4gAALOTmVQYvS5EIZ_naTvNlG5lfufZlA-iVqs6zo3zhw3VWzpwKULe898W4i2Ru2s2E3L73KMGze8JJKVoDLGKJ0kQeIMAkxvk6VvXzwv9-Ryhbs0M9lMJ1CsGkQa7slPpCas2MCNxihjoSqO360RcsVc8AQDE93veYMi1mW3GwK61qyv0V4Ym7J3zH8FpInFCIeLk9G8dbWF_09pMSNLgLlsRlj9OiOLM0poLn0IBSs2tL8R4yC8XAwUAcy9kEPe" />
+            </div>
+        </div>
+    </header>
+    <main class="pt-24 pb-32 px-4 md:px-8 max-w-4xl mx-auto">
+        <!-- Hero Section -->
+        <section class="mb-12">
+            <h1 class="font-headline font-extrabold text-4xl md:text-5xl tracking-tight text-on-surface mb-3">Edit Car
+                Information</h1>
+            <p class="text-on-surface-variant text-lg font-medium">Update your car details anytime.</p>
+        </section>
+        <form class="space-y-8">
+            <!-- Media Section: Bento-style Image Display -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="md:col-span-2 relative h-80 rounded-xl overflow-hidden shadow-sm group">
+                    <img class="w-full h-full object-cover"
+                        data-alt="side view of a sleek electric sports car in a minimalist modern showroom with soft cinematic lighting"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbN5EKSQIyBqekH06rgTVCX4tjSUVlnBchR9dVoIHNDZ_kYhmhT9qjI4buhKCwmvkmqOJ7wFrCKQCKCR5iaOTQsUSlNHfmMlBJUYeHikK0H8sBGE0w1q8Q-8WTijDaKW5C7NdsoYIQ0rmE2DH2zt_OXP5E258fK-ckRpT7N9FHFEDBl94Z4mjRvCsW1r5VcYFqzOsu_JcqhOCbacOEvwRf_qKpCYkkn1wRCk2oFmPEBfCQvywTDZuvlb4nz-gV0IGTO1dFqqUK0lZj" />
+                    <div
+                        class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                        <button
+                            class="bg-white/90 px-6 py-3 rounded-full font-semibold flex items-center gap-2 text-primary shadow-xl active:scale-95 transition-transform"
+                            type="button">
+                            <span class="material-symbols-outlined">edit</span>
+                            Change Image
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="flex flex-col justify-center items-center bg-surface-container-low rounded-xl border-dashed border-2 border-outline-variant p-6 text-center">
+                    <span class="material-symbols-outlined text-outline text-4xl mb-4">add_photo_alternate</span>
+                    <p class="text-sm font-medium text-on-surface-variant mb-2">Add more angles</p>
+                    <p class="text-xs text-outline">Up to 10 photos</p>
+                </div>
+            </div>
+            <!-- Informational Fields -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Car Name Field -->
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-bold uppercase tracking-widest text-on-secondary-container px-1"
+                        for="car-name">Car Name</label>
+                    <input
+                        class="w-full px-5 py-4 bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all font-medium text-on-surface"
+                        id="car-name" placeholder="e.g. Porsche 911 Carrera" type="text"
+                        value="2024 Luminar S-Series" />
+                </div>
+                <!-- Price Field -->
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-bold uppercase tracking-widest text-on-secondary-container px-1"
+                        for="price">Price</label>
+                    <div class="relative">
+                        <span
+                            class="absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">$</span>
+                        <input
+                            class="w-full pl-10 pr-5 py-4 bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all font-medium text-on-surface"
+                            id="price" placeholder="0.00" type="number" value="89000" />
+                    </div>
+                </div>
+                <!-- Description Field (Full Width) -->
+                <div class="md:col-span-2 flex flex-col gap-2">
+                    <label class="text-sm font-bold uppercase tracking-widest text-on-secondary-container px-1"
+                        for="description">Description</label>
+                    <textarea
+                        class="w-full px-5 py-4 bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all font-medium text-on-surface resize-none"
+                        id="description" placeholder="Describe the vehicle condition, history, and key features..."
+                        rows="5">Exquisite electric sedan featuring the latest in sustainable mobility. Single owner, low mileage (4,500 miles), and garage-kept. Includes the tech-performance package and custom leather interior. All service records are up to date through our certified dealership.</textarea>
+                </div>
+            </div>
+            <!-- Spec Grid - Micro-chips as requested by Spec-Grid guideline -->
+            <div class="space-y-4">
+                <h3 class="text-sm font-bold uppercase tracking-widest text-on-secondary-container px-1">Quick Specs
+                </h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div
+                        class="bg-surface-container-low p-4 rounded-lg text-center border border-transparent hover:border-primary/20 transition-colors">
+                        <p class="text-[10px] font-bold text-outline uppercase tracking-tighter">Mileage</p>
+                        <p class="font-headline font-bold text-on-surface">4,500 mi</p>
+                    </div>
+                    <div
+                        class="bg-surface-container-low p-4 rounded-lg text-center border border-transparent hover:border-primary/20 transition-colors">
+                        <p class="text-[10px] font-bold text-outline uppercase tracking-tighter">Fuel Type</p>
+                        <p class="font-headline font-bold text-on-surface">Electric</p>
+                    </div>
+                    <div
+                        class="bg-surface-container-low p-4 rounded-lg text-center border border-transparent hover:border-primary/20 transition-colors">
+                        <p class="text-[10px] font-bold text-outline uppercase tracking-tighter">Transmission</p>
+                        <p class="font-headline font-bold text-on-surface">Automatic</p>
+                    </div>
+                    <div
+                        class="bg-surface-container-low p-4 rounded-lg text-center border border-transparent hover:border-primary/20 transition-colors">
+                        <p class="text-[10px] font-bold text-outline uppercase tracking-tighter">Year</p>
+                        <p class="font-headline font-bold text-on-surface">2024</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Actions -->
+            <div class="flex flex-col md:flex-row gap-4 pt-8 border-t border-outline-variant/30">
+                <button
+                    class="flex-1 bg-gradient-to-r from-primary to-primary-container text-on-primary py-4 px-8 rounded-lg font-bold text-lg shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                    type="submit">
+                    <span class="material-symbols-outlined">check_circle</span>
+                    Save Changes
+                </button>
+                <button
+                    class="bg-surface-container-high text-primary py-4 px-8 rounded-lg font-bold text-lg hover:bg-surface-container-highest active:scale-[0.98] transition-all"
+                    type="button">
+                    Discard Changes
+                </button>
+            </div>
+            <div class="pt-4 flex justify-center">
+                <button
+                    class="text-error font-semibold flex items-center gap-2 px-4 py-2 hover:bg-error-container/20 rounded-lg transition-colors"
+                    type="button">
+                    <span class="material-symbols-outlined text-sm">delete</span>
+                    Delete Listing
+                </button>
+            </div>
+        </form>
+    </main>
+    <!-- Suppressed BottomNavBar based on Task-Focused intent (Edit Screen is focused journey) -->
+    <!-- However, if required for top-level context, it would look like this: -->
+    <nav
+        class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)] md:hidden">
+        <a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2" href="#">
+            <span class="material-symbols-outlined">home</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider">Home</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2" href="#">
+            <span class="material-symbols-outlined">directions_car</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider">Explore</span>
+        </a>
+        <a class="flex flex-col items-center justify-center bg-blue-50 text-blue-700 rounded-2xl px-5 py-2" href="#">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider">Sell</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-400 px-5 py-2" href="#">
+            <span class="material-symbols-outlined">person</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider">Profile</span>
+        </a>
+    </nav>
+</body>
+
+</html>

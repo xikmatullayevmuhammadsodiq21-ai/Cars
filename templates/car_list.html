@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#b9c8db",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#a23600",
+                        "primary": "#003d9a",
+                        "surface-container-low": "#f1f4f6",
+                        "on-primary-fixed": "#001847",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#566475",
+                        "surface": "#f7fafc",
+                        "on-background": "#181c1e",
+                        "surface-tint": "#0056d1",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "background": "#f7fafc",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-error": "#ffffff",
+                        "secondary": "#526071",
+                        "secondary-container": "#d2e1f5",
+                        "surface-bright": "#f7fafc",
+                        "on-tertiary-fixed": "#380d00",
+                        "outline": "#737685",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#d5e4f8",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-dim": "#d7dadc",
+                        "on-surface-variant": "#434654",
+                        "tertiary-fixed": "#ffdbcf",
+                        "surface-container-high": "#e5e9eb",
+                        "surface-container": "#ebeef0",
+                        "on-tertiary-fixed-variant": "#802900",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "on-surface": "#181c1e",
+                        "inverse-on-surface": "#eef1f3",
+                        "inverse-primary": "#b2c5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "primary-container": "#0053ca",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7a2700",
+                        "on-primary-fixed-variant": "#0040a1",
+                        "on-secondary-fixed": "#0e1d2b"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #003d9a 0%, #0053ca 100%);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface antialiased">
+    <!-- TopAppBar -->
+    <header
+        class="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl z-50 shadow-sm dark:shadow-none">
+        <div class="flex items-center gap-4">
+            <button class="active:scale-95 duration-200 hover:bg-slate-100 dark:hover:bg-slate-800 p-2 rounded-full">
+                <span class="material-symbols-outlined text-blue-700 dark:text-blue-500">menu</span>
+            </button>
+            <h1 class="text-2xl font-black italic tracking-tighter text-blue-800 dark:text-blue-400 font-headline">
+                KINETIC</h1>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+            <a class="text-slate-500 dark:text-slate-400 font-semibold hover:text-blue-700 transition-colors"
+                href="{% url 'home_page' %}">Home</a>
+            <a class="text-blue-700 dark:text-blue-400 font-bold" href="{% url 'car_list' %}">Explore</a>
+
+            <a class="text-slate-500 dark:text-slate-400 font-semibold hover:text-blue-700 transition-colors"
+                href="{% url 'profile' %}">Profile</a>
+        </div>
+        <a href="{% url 'profile' %}">
+            <button>
+                <div class="flex items-center">
+                    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/10">
+                        <img alt="User Profile"
+                            data-alt="Close-up portrait of a professional man with a friendly expression in a modern office setting, soft daylighting."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn4m1zEWektF_9h9x45Zh4kovcn_9PUfWAdj8haFx9kgz-pbJ9taecMWvR6cwTPO8G-lYcUaGeAzgT0v7qbxzzvevwgpMBAvswS_3z7OseYWuZA6YFKIN2pMs7UtErNJIbvlIvBJhBKM0ieRVUJpEFm2MpnbcPBHwKZ4A5PPdYIVoXHNCBqQ3DNQ7kB5dP5rqK1gPWj9_6nKfcgyK4-HSD7J6WCaF4Giir9BDSeECB0HBLS_-cXAyVN4dqbTFA6zbO3mLglc4LyV2E" />
+                    </div>
+                </div>
+            </button></a>
+    </header>
+    <main class="pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto">
+        <!-- Hero Section -->
+        <section class="mb-12 relative overflow-hidden rounded-3xl kinetic-gradient p-8 md:p-16 text-on-primary">
+            <div class="relative z-10 max-w-2xl">
+                <h2 class="text-4xl md:text-6xl font-headline font-extrabold tracking-tight mb-4">Available Cars</h2>
+                <p class="text-lg md:text-xl text-on-primary-container opacity-90 font-light leading-relaxed">
+                    Explore a wide range of cars added by users. Click on any car to see more details.
+                </p>
+            </div>
+            <!-- Decorative car element -->
+            <div class="absolute -right-20 bottom-0 w-2/3 opacity-20 pointer-events-none select-none hidden lg:block">
+                <img alt="Hero Car"
+                    data-alt="Sleek silver modern sports car side profile against a dark minimalist studio background with dramatic rim lighting."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNI5eyWijt0ups1QIxnZyN6rmyok-m6suO3V24iHKdcpSNhr3HizjCiGbkhBvOFKMHabzQgNtkeovzifmKlRGTSLGFMc0_hJcYz2Y_16bvIQWrnvPzuU84-3ZsxW9nMwgy9ZzEVi40Y9PBwXb8PdouOq7LjHnStMwu0X7CM4juDYMxm0PUOkmETmROQAxSZCzsXb10RcLyFDNFOM7emS0-ZL7VmAB8iiaoZmn99XFZJ28HkTRSRFy9NP88Krb-Fvo9ABqmB1xLTuCw" />
+            </div>
+        </section>
+        <!-- Search & Filter Bar -->
+        <section class="mb-10">
+            <div class="bg-surface-container-low rounded-2xl p-4 flex flex-col md:flex-row gap-4 items-center">
+                <div class="relative w-full md:flex-1">
+                    <span
+                        class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+                    <input
+                        class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline/60 transition-all"
+                        placeholder="Search by make, model, or year..." type="text" />
+                </div>
+                <div class="flex gap-2 w-full md:w-auto">
+                    <button
+                        class="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-4 bg-surface-container-highest text-on-surface font-semibold rounded-xl hover:bg-surface-container-high transition-colors">
+                        <span class="material-symbols-outlined text-xl">tune</span>
+                        <span>Filters</span>
+                    </button>
+                    <button
+                        class="flex-1 md:flex-none px-8 py-4 kinetic-gradient text-on-primary font-bold rounded-xl shadow-lg shadow-primary/20 active:scale-95 transition-all">
+                        Search
+                    </button>
+                </div>
+            </div>
+            <!-- Quick Tags -->
+            <div class="flex gap-3 mt-4 overflow-x-auto pb-2 scrollbar-hide">
+                <span
+                    class="px-4 py-1.5 bg-blue-50 text-primary text-sm font-semibold rounded-full border border-primary/10 whitespace-nowrap">Electric</span>
+                <span
+                    class="px-4 py-1.5 bg-surface-container-highest text-on-surface-variant text-sm font-medium rounded-full whitespace-nowrap">Luxury
+                    Sedans</span>
+                <span
+                    class="px-4 py-1.5 bg-surface-container-highest text-on-surface-variant text-sm font-medium rounded-full whitespace-nowrap">SUV</span>
+                <span
+                    class="px-4 py-1.5 bg-surface-container-highest text-on-surface-variant text-sm font-medium rounded-full whitespace-nowrap">Under
+                    $30k</span>
+                <span
+                    class="px-4 py-1.5 bg-surface-container-highest text-on-surface-variant text-sm font-medium rounded-full whitespace-nowrap">Certified</span>
+            </div>
+        </section>
+        <!-- Cars Bento Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Car Card 1 -->
+            <div
+                class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div class="relative h-64 overflow-hidden">
+                    <img alt="Porsche 911"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="Close-up of a dark grey Porsche 911 parked on a mountain road during golden hour with soft sunlight hitting the curves."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqv2j5BcOQ6l5WqD4h2mMdOIGcoOxlNdxbPs5mkjocd-3VnNwWG6rjTP3f6cytCaqHT8JvH0ZBF6mmARxnY6DBaA6oYnfcSb4gyF-39dwA4pihwt6WZkkYftas_ulH72k_gNiBbQSYR0yZ3AqGYvwkCKDmg6yzX3PJC8Onwkb8Uzl9JHkP3dK1-53yVFXzxYZ-h9XG8Zx7qSx_SHMEefEVnWAcztfpr7wLCkJt9xgMwBZe-RJIgkyTNYrGni3QC1esdlLpJrPpYPw-" />
+                    <div class="absolute top-4 left-4">
+                        <span
+                            class="bg-tertiary text-on-tertiary text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">New
+                            Arrival</span>
+                    </div>
+                    <button
+                        class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-headline font-bold text-on-surface">Porsche 911 Carrera</h3>
+                            <p class="text-sm text-on-surface-variant font-medium">2023 • 1,200 miles</p>
+                        </div>
+                        <p class="text-xl font-headline font-black text-primary">$114,500</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">speed</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">3.4s (0-60)</span>
+                        </div>
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">local_gas_station</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">Gasoline</span>
+                        </div>
+                    </div>
+                    <button
+                        class="mt-auto w-full py-4 bg-surface-container-high text-primary font-bold rounded-xl hover:bg-primary hover:text-on-primary transition-all duration-300">
+                        View Details
+                    </button>
+                </div>
+            </div>
+            <!-- Car Card 2 -->
+            <div
+                class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div class="relative h-64 overflow-hidden">
+                    <img alt="BMW M8"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="A clean white BMW M8 Competition parked in a modern architectural driveway with sleek glass reflections and soft evening light."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaRJAepOvIm4xMF5ssXs9h9xH4DA4NK2TgvCXDWXnkAplpG50TPwwC8jlxLsooLSurvSosTfEoBk_sdnRNHBhGjRVnBX6bxS56ajR_il4rF5CZ6WtXL4LkRAYCbxJ4nutCMoGeeZhrGNRDDQHCImfPyNsSnSjoXG9-DcQhelcNplXya5awEQi2-mc7o89ZklhOdj5d5vj8kYbbOgdgne0JPyS0VM7qI4Io19F1VPxlW1bYxgSQz7PDPkL_kezwNJ9pSsBJNwDKbLOF" />
+                    <button
+                        class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-headline font-bold text-on-surface">BMW M8 Coupe</h3>
+                            <p class="text-sm text-on-surface-variant font-medium">2022 • 8,450 miles</p>
+                        </div>
+                        <p class="text-xl font-headline font-black text-primary">$89,200</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">bolt</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">617 HP</span>
+                        </div>
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">settings</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">Automatic</span>
+                        </div>
+                    </div>
+                    <button
+                        class="mt-auto w-full py-4 bg-surface-container-high text-primary font-bold rounded-xl hover:bg-primary hover:text-on-primary transition-all duration-300">
+                        View Details
+                    </button>
+                </div>
+            </div>
+            <!-- Car Card 3 -->
+            <div
+                class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div class="relative h-64 overflow-hidden">
+                    <img alt="Tesla Model S"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="Minimalist shot of a red Tesla Model S Plaid in a futuristic underground parking lot with neon linear lighting."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuiBNFfnTj4VjKPHuyi2B63bDX8vUOmPw1z7jJYveOYDZMguB2e4EqlGbaSzVAUOuAZoKDJvwNSPucI17uHhx9kRtN16PQWgzLTgdTRQikJTiV8S6lB2IceEQZqWweOMD7K3azfUyzewbOPHGXv4X2Gr2ARtsdNcMmYE0e8Gt9Xo74MhhSZ2kWcD75mNQjVuETDSo-TmIgK0PzSbrhGmrSEKQbwkJ0qKKBICWjRqOIcMCaWkbQS94mCqrUfgQpvC2e0eJjXnbxyeKH" />
+                    <div class="absolute top-4 left-4">
+                        <span
+                            class="bg-primary-container text-on-primary text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Electric</span>
+                    </div>
+                    <button
+                        class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-headline font-bold text-on-surface">Tesla Model S Plaid</h3>
+                            <p class="text-sm text-on-surface-variant font-medium">2023 • 500 miles</p>
+                        </div>
+                        <p class="text-xl font-headline font-black text-primary">$102,900</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">ev_station</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">396mi Range</span>
+                        </div>
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">speed</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">1.9s (0-60)</span>
+                        </div>
+                    </div>
+                    <button
+                        class="mt-auto w-full py-4 bg-surface-container-high text-primary font-bold rounded-xl hover:bg-primary hover:text-on-primary transition-all duration-300">
+                        View Details
+                    </button>
+                </div>
+            </div>
+            <!-- Car Card 4 -->
+            <div
+                class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div class="relative h-64 overflow-hidden">
+                    <img alt="Audi RS7"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="Matte black Audi RS7 driving through a modern city canyon at night with vibrant tail light streaks and bokeh lights."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdNkehPcOxLRE9BhrSLAjGkfutmNOYWFhpA0V8vM_6r3j53XI01SwT3cITgosbzg7zayGvHDNKm4s2qDR3kYzzFgSXusVoXRdsFLH-S8QOkDBZhFryutUjCHuue8sa49s8hWzJBYcmTxzsobkQbyxnEwSoUdVkbQ-6pexi5xYY_kv5xHnZXGrfpq9OOWlMeqtF9jtEGQeCGq0ogFDQll4c_Lek0GTPM04Ox_ynSsm98tj3Ka5ald7VoyyLddC93G3eXErBHEE2KXwj" />
+                    <button
+                        class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-headline font-bold text-on-surface">Audi RS7 Sportback</h3>
+                            <p class="text-sm text-on-surface-variant font-medium">2021 • 15,300 miles</p>
+                        </div>
+                        <p class="text-xl font-headline font-black text-primary">$96,400</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">bolt</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">591 HP</span>
+                        </div>
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span
+                                class="material-symbols-outlined text-primary text-lg">airline_seat_recline_extra</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">Quattro AWD</span>
+                        </div>
+                    </div>
+                    <button
+                        class="mt-auto w-full py-4 bg-surface-container-high text-primary font-bold rounded-xl hover:bg-primary hover:text-on-primary transition-all duration-300">
+                        View Details
+                    </button>
+                </div>
+            </div>
+            <!-- Car Card 5 -->
+            <div
+                class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div class="relative h-64 overflow-hidden">
+                    <img alt="Ferrari Roma"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="Classic red Ferrari Roma parked in a historic Italian cobblestone plaza during the blue hour with warm building lights."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi-RoA3zA3D0Yd5lJBD_KWouHMjdj2dCh_tNx-phu8E7_YQxrwfgp4gr6o1VYE2WlZKfhtPXDCAyJO75489nct8gv_HFDX4GnyZcSBWQ5g0tRO4NfJhrvDwljvjZEq0CzgWufoul_VgdLxGHTuHbOslYhqnXNCV99P_90avdDcBzF60QbquntBkdB6Nby6UW8VnOlHlQNw7LuDAWfz6y5LquPevgP5QvJhbE6CecuT8dYAcn1FefUfcQvUJRZp8l3TV2ql6nxPGocr" />
+                    <div class="absolute top-4 left-4">
+                        <span
+                            class="bg-slate-900 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Premium</span>
+                    </div>
+                    <button
+                        class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-headline font-bold text-on-surface">Ferrari Roma</h3>
+                            <p class="text-sm text-on-surface-variant font-medium">2022 • 2,100 miles</p>
+                        </div>
+                        <p class="text-xl font-headline font-black text-primary">$225,000</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">speed</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">V8 Turbo</span>
+                        </div>
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">palette</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">Rosso Corsa</span>
+                        </div>
+                    </div>
+                    <button
+                        class="mt-auto w-full py-4 bg-surface-container-high text-primary font-bold rounded-xl hover:bg-primary hover:text-on-primary transition-all duration-300">
+                        View Details
+                    </button>
+                </div>
+            </div>
+            <!-- Car Card 6 -->
+            <div
+                class="group bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                <div class="relative h-64 overflow-hidden">
+                    <img alt="Mercedes AMG G63"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        data-alt="Strong silhouette of a black Mercedes-Benz G-Wagon in a desert landscape during a vibrant orange sunset."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9Myc9R--M-8Ol9xSMNrmTU-2ZlDZy97FrsUp4FRy0IKum4Biiilfg6_VC4NAWSqFw48vz98z_EnmotWszLfFyFmryEbSp76eFgUuNy9u3JznHASS8YqA-Fexxdov4d5bnyyzkONEFE_lOdKZYVfHlT8zpG61bh5oxDRvmQGuiDN4QiHnQSIvoKP89_ebBt08idMsx5VYHKE5zOZ60hC-s9Gj1TLEz-EvQg6RZ2lRvIuZt93okcQg7_S8LtBRQWLpIA-dJvhqS0zZi" />
+                    <button
+                        class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/40 transition-colors">
+                        <span class="material-symbols-outlined">favorite</span>
+                    </button>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-headline font-bold text-on-surface">Mercedes-AMG G 63</h3>
+                            <p class="text-sm text-on-surface-variant font-medium">2023 • 0 miles</p>
+                        </div>
+                        <p class="text-xl font-headline font-black text-primary">$179,000</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mb-6">
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">terrain</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">4x4</span>
+                        </div>
+                        <div class="bg-surface-container-low p-3 rounded-xl flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary text-lg">stars</span>
+                            <span class="text-xs font-semibold text-on-surface-variant">Full Options</span>
+                        </div>
+                    </div>
+                    <button
+                        class="mt-auto w-full py-4 bg-surface-container-high text-primary font-bold rounded-xl hover:bg-primary hover:text-on-primary transition-all duration-300">
+                        View Details
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Pagination -->
+        <div class="mt-16 flex justify-center items-center gap-4">
+            <button
+                class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            <div class="flex gap-2">
+                <button class="w-12 h-12 rounded-full kinetic-gradient text-on-primary font-bold">1</button>
+                <button class="w-12 h-12 rounded-full hover:bg-surface-container-low font-semibold">2</button>
+                <button class="w-12 h-12 rounded-full hover:bg-surface-container-low font-semibold">3</button>
+                <span class="flex items-center px-2">...</span>
+                <button class="w-12 h-12 rounded-full hover:bg-surface-container-low font-semibold">12</button>
+            </div>
+            <button
+                class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors">
+                <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+        </div>
+    </main>
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav
+        class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl rounded-t-3xl border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+        <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined">home</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Home</span>
+        </a>
+        <a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-2xl px-5 py-2 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Explore</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined">add_circle</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Sell</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined">person</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Profile</span>
+        </a>
+    </nav>
+</body>
+
+</html>

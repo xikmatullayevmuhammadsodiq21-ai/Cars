@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Add a New Car | KINETIC</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#b9c8db",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#a23600",
+                        "primary": "#003d9a",
+                        "surface-container-low": "#f1f4f6",
+                        "on-primary-fixed": "#001847",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#566475",
+                        "surface": "#f7fafc",
+                        "on-background": "#181c1e",
+                        "surface-tint": "#0056d1",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "background": "#f7fafc",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-error": "#ffffff",
+                        "secondary": "#526071",
+                        "secondary-container": "#d2e1f5",
+                        "surface-bright": "#f7fafc",
+                        "on-tertiary-fixed": "#380d00",
+                        "outline": "#737685",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#d5e4f8",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-dim": "#d7dadc",
+                        "on-surface-variant": "#434654",
+                        "tertiary-fixed": "#ffdbcf",
+                        "surface-container-high": "#e5e9eb",
+                        "surface-container": "#ebeef0",
+                        "on-tertiary-fixed-variant": "#802900",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "on-surface": "#181c1e",
+                        "inverse-on-surface": "#eef1f3",
+                        "inverse-primary": "#b2c5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "primary-container": "#0053ca",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7a2700",
+                        "on-primary-fixed-variant": "#0040a1",
+                        "on-secondary-fixed": "#0e1d2b"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(12px);
+        }
+
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #003d9a 0%, #0053ca 100%);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen">
+    <!-- TopAppBar -->
+    <header
+        class="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl z-50 shadow-sm dark:shadow-none">
+        <div class="flex items-center gap-4">
+            <a href="{% url 'home_page' %}">
+            <button
+                class="p-2 text-slate-500 hover:bg-slate-100 transition-colors rounded-full active:scale-95 duration-200">
+                <span class="material-symbols-outlined" data-icon="close">close</span>
+            </button></a>
+            <span
+                class="text-2xl font-black italic tracking-tighter text-blue-800 dark:text-blue-400 font-headline uppercase">KINETIC</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/10">
+                <img alt="User Profile" class="w-full h-full object-cover"
+                    data-alt="Professional headshot of a person with friendly expression in high-end studio lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoLk2rYY-mgjVNYst9ydtMEs1h8RFwH1bLlg3CYDHHp4DFFgBto5EuwodhuPESTzrCvHNyXzsyvZGI0On-rczwBqX9un-nd15xrlmfOHkhjlTlAjYFERfYCXTerHMDnRyNTV_GX1mBLjyG3E8wXKJaMXXmz_SBwdexFbE3KVE8wVSgn6eZS09jZZTWRYJ9SOljt6Z-KTZ9-CtG5A3d-M1pM-4AQi5saNL8gbKrbkcp4aEJGxSmJDWm-BUVcpBUP7IrYOLifuj7PfSq" />
+            </div>
+        </div>
+    </header>
+    <main class="pt-24 pb-32 px-6 max-w-4xl mx-auto">
+        <!-- Hero Section / Title -->
+        <div class="mb-10">
+            <h1 class="font-headline font-extrabold text-4xl md:text-5xl text-on-surface tracking-tight mb-3">Add a New
+                Car</h1>
+            <p class="text-on-surface-variant text-lg max-w-2xl">Fill in the details below to list your car for sale in
+                our premium Kinetic showroom.</p>
+        </div>
+        <form class="space-y-8">
+            <!-- Bento Layout for Form -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <!-- Main Details Card -->
+                <div class="md:col-span-8 bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+                    <div class="space-y-6">
+                        <div>
+                            <label
+                                class="block font-label text-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-2">Car
+                                Name</label>
+                            <input
+                                class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all placeholder:text-outline"
+                                placeholder="e.g. 2024 Porsche 911 Carrera" type="text" />
+                        </div>
+                        <div>
+                            <label
+                                class="block font-label text-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-2">Description</label>
+                            <textarea
+                                class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all placeholder:text-outline"
+                                placeholder="Describe the performance, history, and unique features of your vehicle..."
+                                rows="6"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <!-- Price & Tag Card -->
+                <div class="md:col-span-4 space-y-6">
+                    <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm border-l-4 border-primary">
+                        <label
+                            class="block font-label text-sm font-semibold uppercase tracking-wider text-on-surface-variant mb-2">Price
+                            ($)</label>
+                        <input
+                            class="w-full text-2xl font-headline font-bold bg-transparent border-none p-0 focus:ring-0 placeholder:text-surface-variant"
+                            placeholder="0.00" type="number" />
+                        <p class="text-xs text-on-surface-variant mt-2">Market average: $45,000</p>
+                    </div>
+                    <div class="bg-primary-container/10 rounded-xl p-6">
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary mt-1" data-icon="info">info</span>
+                            <p class="text-sm text-on-secondary-fixed-variant leading-relaxed">
+                                Listings with professional photos sell 3x faster. Our Kinetic Gallery uses
+                                high-resolution displays.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image Upload (Bento Wide) -->
+                <div class="md:col-span-12">
+                    <div
+                        class="relative group bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-12 transition-all hover:border-primary/50 flex flex-col items-center justify-center text-center overflow-hidden">
+                        <!-- Background Decorative Element -->
+                        <div class="absolute inset-0 opacity-5 pointer-events-none kinetic-gradient"></div>
+                        <div class="relative z-10">
+                            <div
+                                class="w-20 h-20 bg-primary-fixed rounded-full flex items-center justify-center mb-6 mx-auto">
+                                <span class="material-symbols-outlined text-primary text-4xl"
+                                    data-icon="add_a_photo">add_a_photo</span>
+                            </div>
+                            <h3 class="font-headline font-bold text-xl mb-2">Upload High-Res Imagery</h3>
+                            <p class="text-on-surface-variant mb-6 max-w-sm mx-auto">Drag and drop your car photos here,
+                                or click to browse from your gallery.</p>
+                            <button
+                                class="bg-surface-container-high text-primary px-8 py-3 rounded-full font-semibold hover:bg-primary hover:text-white transition-all active:scale-95"
+                                type="button">
+                                Select Files
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Spec Grid Suggestion (The Engineering Detail) -->
+                <div class="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-3">
+                        <span class="material-symbols-outlined text-slate-400" data-icon="speed">speed</span>
+                        <div>
+                            <p class="text-[10px] font-semibold text-slate-500 uppercase">Mileage</p>
+                            <input class="w-full bg-transparent border-none p-0 text-sm font-bold focus:ring-0"
+                                placeholder="0 km" type="text" />
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-3">
+                        <span class="material-symbols-outlined text-slate-400"
+                            data-icon="local_gas_station">local_gas_station</span>
+                        <div>
+                            <p class="text-[10px] font-semibold text-slate-500 uppercase">Fuel Type</p>
+                            <input class="w-full bg-transparent border-none p-0 text-sm font-bold focus:ring-0"
+                                placeholder="Petrol" type="text" />
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-3">
+                        <span class="material-symbols-outlined text-slate-400"
+                            data-icon="calendar_month">calendar_month</span>
+                        <div>
+                            <p class="text-[10px] font-semibold text-slate-500 uppercase">Year</p>
+                            <input class="w-full bg-transparent border-none p-0 text-sm font-bold focus:ring-0"
+                                placeholder="2024" type="text" />
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low p-4 rounded-xl flex items-center gap-3">
+                        <span class="material-symbols-outlined text-slate-400"
+                            data-icon="settings_input_component">settings_input_component</span>
+                        <div>
+                            <p class="text-[10px] font-semibold text-slate-500 uppercase">Transmission</p>
+                            <input class="w-full bg-transparent border-none p-0 text-sm font-bold focus:ring-0"
+                                placeholder="Automatic" type="text" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Action Area -->
+            <div
+                class="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-surface-container-high">
+                <div class="flex items-center gap-2 text-on-surface-variant">
+                    <span class="material-symbols-outlined text-sm" data-icon="lock"
+                        style="font-variation-settings: 'FILL' 1;">lock</span>
+                    <span class="text-xs">Your listing will be reviewed for quality before appearing in the
+                        gallery.</span>
+                </div>
+                <div class="flex gap-4 w-full md:w-auto">
+                    <button
+                        class="flex-1 md:flex-none px-10 py-4 bg-surface-container-high text-on-surface-variant font-bold rounded-lg hover:bg-surface-variant transition-all active:scale-95"
+                        type="button">
+                        Save Draft
+                    </button>
+                    <button
+                        class="flex-1 md:flex-none kinetic-gradient text-on-primary px-12 py-4 font-bold rounded-lg shadow-xl shadow-primary/20 hover:scale-[1.02] transition-all active:scale-95"
+                        type="submit">
+                        Submit Car
+                    </button>
+                </div>
+            </div>
+        </form>
+    </main>
+    <!-- BottomNavBar (Suppressed as per rules for transactional page) -->
+    <!-- However, providing the Shell for structure context if it were a top-level tab -->
+    <!-- The user is in a focused "Add" journey, so we keep navigation hidden to prioritize focus. -->
+    <footer class="bg-surface-container-low py-12 px-6 mt-20">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <span
+                class="text-xl font-black italic tracking-tighter text-slate-400 font-headline uppercase">KINETIC</span>
+            <div class="flex gap-8 text-sm font-medium text-on-surface-variant">
+                <a class="hover:text-primary" href="#">Guidelines</a>
+                <a class="hover:text-primary" href="#">Support</a>
+                <a class="hover:text-primary" href="#">Privacy</a>
+            </div>
+            <p class="text-xs text-slate-400">© 2024 Kinetic Marketplace. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

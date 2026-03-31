@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Register | KINETIC</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#b9c8db",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#a23600",
+                        "primary": "#003d9a",
+                        "surface-container-low": "#f1f4f6",
+                        "on-primary-fixed": "#001847",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#566475",
+                        "surface": "#f7fafc",
+                        "on-background": "#181c1e",
+                        "surface-tint": "#0056d1",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "background": "#f7fafc",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-error": "#ffffff",
+                        "secondary": "#526071",
+                        "secondary-container": "#d2e1f5",
+                        "surface-bright": "#f7fafc",
+                        "on-tertiary-fixed": "#380d00",
+                        "outline": "#737685",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#d5e4f8",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-dim": "#d7dadc",
+                        "on-surface-variant": "#434654",
+                        "tertiary-fixed": "#ffdbcf",
+                        "surface-container-high": "#e5e9eb",
+                        "surface-container": "#ebeef0",
+                        "on-tertiary-fixed-variant": "#802900",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "on-surface": "#181c1e",
+                        "inverse-on-surface": "#eef1f3",
+                        "inverse-primary": "#b2c5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "primary-container": "#0053ca",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7a2700",
+                        "on-primary-fixed-variant": "#0040a1",
+                        "on-secondary-fixed": "#0e1d2b"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #003d9a 0%, #0053ca 100%);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body text-on-background min-h-screen flex flex-col">
+    <!-- Header / Navigation Shell Suppression: Task-Focused Journey -->
+    <!-- As per instructions, Shell is suppressed for Transactional pages like Register -->
+    <main class="flex-grow flex flex-col lg:flex-row min-h-screen">
+        <!-- Visual Section: Kinetic Gallery Aesthetic -->
+        <div class="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-primary overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover opacity-60 mix-blend-multiply"
+                    data-alt="high-end luxury sports car interior detail with premium leather stitching and futuristic dashboard lighting in a deep blue tone"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLdwPfH_mYXt4CEhSf21LBd-TjdCNT8bMiqtvVjbjgiy2xGyo7JPS6cHH9_Rgci7_Y3mw5iJkZwmfP-XDH8zVDR_xjUf0U6h-7WF7ptDB5p8YBw6aWQrBwxQSE52EZqW9ELROgynkp7DwXGwg4EklLfv3cE6CEh3zfDw6lCV3D0hhwAm101JlRay4U4t2iKUjC5KfYv7L7eqz4GsvXGqqmKbB0Ma2VA0Jsy0e9RXpaDdpC46r3szETiKdR00i6uBid-507n5_VU6sm" />
+            </div>
+            <div class="relative z-10 p-16 flex flex-col justify-between h-full text-on-primary">
+                <div>
+                    <h1 class="font-headline font-black italic tracking-tighter text-4xl mb-4">KINETIC</h1>
+                    <p class="font-headline text-5xl font-extrabold leading-tight tracking-tight max-w-md">
+                        The showroom of the future, curated for you.
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-white/10 glass-effect p-6 rounded-xl max-w-sm">
+                        <span class="material-symbols-outlined text-primary-fixed text-3xl mb-2"
+                            data-icon="verified">verified</span>
+                        <p class="text-lg font-medium">Every vehicle is authenticated by our master technicians for
+                            absolute peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Kinetic Asymmetry Element -->
+            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-primary-container/30 rounded-full blur-3xl"></div>
+        </div>
+        <!-- Form Section -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center p-6 md:p-12 lg:p-24 bg-surface">
+            <div class="w-full max-w-md">
+                <!-- Mobile Logo -->
+                <div class="lg:hidden mb-12 text-center">
+                    <h1 class="font-headline font-black italic tracking-tighter text-3xl text-primary">KINETIC</h1>
+                </div>
+                <header class="mb-10">
+                    <h2 class="font-headline text-3xl md:text-4xl font-bold text-on-surface mb-3 tracking-tight">Create
+                        Your Account</h2>
+                    <p class="text-on-surface-variant text-lg">Join us today and start buying or selling cars
+                        effortlessly.</p>
+                </header>
+                <form class="space-y-6" method="post">
+                    {% csrf_token %}
+                    <div class="space-y-5">
+                        <!-- Username Field -->
+                        <div class="space-y-2">
+                            <label
+                                class="font-label text-sm font-semibold uppercase tracking-wider text-on-surface-variant px-1"
+                                for="username">Username</label>
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+                                    <span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+                                </div>
+                                <input
+                                    class="w-full pl-11 pr-4 py-4 bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all duration-200 placeholder:text-outline"
+                                    id="username" name="username" placeholder="johndoe" type="text" />
+                            </div>
+                        </div>
+                        <!-- Email Field -->
+                        <div class="space-y-2">
+                            <label
+                                class="font-label text-sm font-semibold uppercase tracking-wider text-on-surface-variant px-1"
+                                for="email">Email</label>
+                            <div class="relative">
+                                <div
+                                    class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+                                    <span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+                                </div>
+                                <input
+                                    class="w-full pl-11 pr-4 py-4 bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all duration-200 placeholder:text-outline"
+                                    id="email" name="email" placeholder="name@example.com" type="email" />
+                            </div>
+                        </div>
+                        <!-- Password Fields Row -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label
+                                    class="font-label text-sm font-semibold uppercase tracking-wider text-on-surface-variant px-1"
+                                    for="password">Password</label>
+                                <div class="relative">
+                                    <div
+                                        class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+                                        <span class="material-symbols-outlined text-[20px]" data-icon="lock">lock</span>
+                                    </div>
+                                    <input
+                                        class="w-full pl-11 pr-4 py-4 bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all duration-200 placeholder:text-outline"
+                                        id="password" name="password" placeholder="••••••••" type="password" />
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="font-label text-sm font-semibold uppercase tracking-wider text-on-surface-variant px-1"
+                                    for="confirm_password">Confirm Password</label>
+                                <div class="relative">
+                                    <div
+                                        class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+                                        <span class="material-symbols-outlined text-[20px]"
+                                            data-icon="lock_reset">lock_reset</span>
+                                    </div>
+                                    <input
+                                        class="w-full pl-11 pr-4 py-4 bg-surface-container-highest border-none rounded-lg focus:ring-2 focus:ring-primary focus:bg-surface-container-lowest transition-all duration-200 placeholder:text-outline"
+                                        id="confirm_password" name="confirm_password" placeholder="••••••••"
+                                        type="password" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Terms Checkbox -->
+                    <div class="flex items-start px-1">
+                        <div class="flex items-center h-5">
+                            <input class="h-5 w-5 text-primary border-outline-variant rounded focus:ring-primary"
+                                id="terms" name="terms" type="checkbox" />
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label class="text-on-surface-variant leading-relaxed" for="terms">
+                                I agree to the <a class="text-primary font-semibold hover:underline" href="#">Terms of
+                                    Service</a> and <a class="text-primary font-semibold hover:underline"
+                                    href="#">Privacy Policy</a>.
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Action Button -->
+                    <div class="pt-4">
+                        <a href="{% url 'home_page' %}">
+                            <button
+                                class="kinetic-gradient w-full py-4 px-6 text-on-primary font-headline font-bold text-lg rounded-lg shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98] transition-all duration-200"
+                                type="submit">
+                                Register
+                            </button></a>
+                    </div>
+                    <div class="text-center pt-6">
+                        <p class="text-on-surface-variant">
+                            Already have an account?
+                            <a class="text-primary font-bold hover:underline" href="{% url 'login' %}">Log in</a>
+                        </p>
+                    </div>
+                </form>
+                <!-- Micro-copy / Trust Signal -->
+                <div
+                    class="mt-12 flex items-center justify-center gap-8 opacity-40 grayscale hover:grayscale-0 transition-all">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]" data-icon="security">security</span>
+                        <span class="text-xs font-bold tracking-widest uppercase">SSL Secure</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]"
+                            data-icon="verified_user">verified_user</span>
+                        <span class="text-xs font-bold tracking-widest uppercase">Protected</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+
+        .font-headline {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed-dim": "#b9c8db",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary-container": "#a23600",
+                        "primary": "#003d9a",
+                        "surface-container-low": "#f1f4f6",
+                        "on-primary-fixed": "#001847",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#566475",
+                        "surface": "#f7fafc",
+                        "on-background": "#181c1e",
+                        "surface-tint": "#0056d1",
+                        "primary-fixed": "#dae2ff",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c3c6d6",
+                        "background": "#f7fafc",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-error": "#ffffff",
+                        "secondary": "#526071",
+                        "secondary-container": "#d2e1f5",
+                        "surface-bright": "#f7fafc",
+                        "on-tertiary-fixed": "#380d00",
+                        "outline": "#737685",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "secondary-fixed": "#d5e4f8",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-dim": "#d7dadc",
+                        "on-surface-variant": "#434654",
+                        "tertiary-fixed": "#ffdbcf",
+                        "surface-container-high": "#e5e9eb",
+                        "surface-container": "#ebeef0",
+                        "on-tertiary-fixed-variant": "#802900",
+                        "on-secondary-fixed-variant": "#3a4858",
+                        "on-surface": "#181c1e",
+                        "inverse-on-surface": "#eef1f3",
+                        "inverse-primary": "#b2c5ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c4d2ff",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-container": "#ffc6b2",
+                        "primary-container": "#0053ca",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#7a2700",
+                        "on-primary-fixed-variant": "#0040a1",
+                        "on-secondary-fixed": "#0e1d2b"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+    <!-- TopAppBar -->
+    <header
+        class="fixed top-0 w-full flex justify-between items-center px-6 py-4 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none z-50">
+        <div class="flex items-center gap-4">
+            <button
+                class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors rounded-full active:scale-95 duration-200">
+                <span class="material-symbols-outlined" data-icon="menu">menu</span>
+            </button>
+            <h1 class="text-2xl font-black italic tracking-tighter text-blue-800 dark:text-blue-400 font-headline">
+                KINETIC</h1>
+        </div>
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="text-blue-700 dark:text-blue-400 font-bold font-manrope" href="{% url 'home_page' %}">Home</a>
+            <a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-600 transition-colors"
+                href="{% url 'car_list' %}">Explore</a>
+
+            <a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-600 transition-colors"
+                href="{% url 'car_detail' %}">Pricing</a>
+            <a class="text-slate-500 dark:text-slate-400 font-semibold hover:text-blue-700 transition-colors"
+                href="{% url 'profile' %}">Profile</a>
+        </nav>
+        <a href="{% url 'profile' %}">
+            <button>
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/20">
+                        <img alt="User Profile" class="w-full h-full object-cover"
+                            data-alt="Professional headshot of a smiling man in a creative studio environment with soft bokeh background"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIVjyvKzqoFdYptBLpO4GKSl2Uhgn9xCcXwXicUqkHmxBmK_A2a0wZoZzq7vzcZYD0jGWfu8kOVjXuKZ47I5V4Lk4uZGdhMo7-6Z75XJ8zqAPu7TA0V5oWtgqZh0bAw3xhZXbzOWBEh2ffdlIluD9SSTbmmHQm7_GGtAkwn0v3BfpK_5bLiPu5CM_IbdulGkPMh7YiqlwKkCcsAtTx9qYJohUdXVgEOe2wGqzxVAMcXvXOtWTrJ7ffMaSK8bHqW77xeV01SM539Yzv" />
+                    </div>
+                </div>
+            </button></a>
+    </header>
+    <main class="pt-20 pb-24 md:pb-0">
+        <!-- Hero Section: Kinetic Gallery Style -->
+        <section class="relative min-h-[795px] flex items-center px-6 overflow-hidden">
+            <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center">
+                <div class="z-10 relative">
+                    <span
+                        class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-primary text-xs font-bold tracking-widest uppercase mb-6">Premium
+                        Marketplace</span>
+                    <h1
+                        class="text-5xl md:text-7xl font-extrabold font-headline leading-[1.1] text-on-surface tracking-tight mb-6">
+                        Find Your <br />
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-container">Dream
+                            Car</span> <br />
+                        Today
+                    </h1>
+                    <p class="text-lg md:text-xl text-on-surface-variant leading-relaxed max-w-lg mb-10">
+                        Buy, sell, and explore the best cars in one place. Fast, simple, and reliable. Experience the
+                        kinetic showroom.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="{% url 'car_list' %}">
+                            <button
+                                class="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold rounded-lg shadow-xl shadow-primary/20 hover:shadow-2xl hover:shadow-primary/30 active:scale-95 transition-all duration-200">
+                                Browse Cars
+                            </button></a>
+                        <a href="{% url 'add' %}">
+                            <button
+                                class="px-8 py-4 bg-surface-container-high text-primary font-bold rounded-lg hover:bg-surface-container-highest active:scale-95 transition-all duration-200">
+                                Add Your Car
+                            </button></a>
+                    </div>
+                    <!-- Trust Indicators -->
+                    <div class="mt-12 flex items-center gap-8 grayscale opacity-60">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-2xl" data-icon="verified">verified</span>
+                            <span class="text-sm font-bold font-label">CERTIFIED</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-2xl" data-icon="security">security</span>
+                            <span class="text-sm font-bold font-label">SECURE</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hero Image: Overlapping Asymmetry -->
+                <div class="relative z-0 lg:h-[600px]">
+                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl">
+                    </div>
+                    <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl"></div>
+                    <!-- Main Car Image -->
+                    <div class="relative h-full w-full rounded-3xl overflow-hidden shadow-2xl rotate-1 group">
+                        <img alt="Luxury sports car"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            data-alt="Modern sleek high-performance sports car in a minimalist concrete showroom with dramatic lighting and deep shadows"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuKhX6VBPz3bJHto_EC7wkZG8i2qdBcrBlRQkEwsxmrmrpGP6VkPJuRjeENulWZVxcnC5guMFVme_Kd67VFwZKO8ppbAB2y53-UneddN_POMFA9Jqa1YhhP_xEFs4JjYwAAOULc7hRaVWvRjomx66nQhLipBMxrIOlA6zhRDm3M0q-kqSzV323YKGvjMtK_dew2H2dTR5kel8AsGAB5kYecbyS-ArIaXtNLlgMrakDzKrYQkN2aMNiMGwN4_YeJhmcC7t6ObYl1UTd" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <p class="text-sm font-label font-bold uppercase tracking-widest opacity-80">Now Featured
+                            </p>
+                            <h3 class="text-2xl font-headline font-bold">2024 Kinetic GT</h3>
+                        </div>
+                    </div>
+                    <!-- Floating Performance Chip -->
+                    <div
+                        class="absolute -bottom-6 -right-6 md:right-10 bg-white p-6 rounded-2xl shadow-2xl z-20 border border-slate-50">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-surface-container-low p-3 rounded-xl text-center">
+                                <p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-tighter">Top
+                                    Speed</p>
+                                <p class="text-lg font-headline font-black text-primary">205 MPH</p>
+                            </div>
+                            <div class="bg-surface-container-low p-3 rounded-xl text-center">
+                                <p class="text-[10px] text-on-surface-variant font-bold uppercase tracking-tighter">0-60
+                                    MPH</p>
+                                <p class="text-lg font-headline font-black text-primary">2.8s</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Bento Grid: Trending Collections -->
+        <section class="py-24 bg-surface-container-low">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                    <div>
+                        <h2 class="text-3xl font-headline font-extrabold tracking-tight mb-2">The Showroom</h2>
+                        <p class="text-on-surface-variant">Explore hand-picked collections from our top curators.</p>
+                    </div>
+                    <button class="text-primary font-bold flex items-center gap-2 hover:gap-3 transition-all">
+                        View All Collections <span class="material-symbols-outlined"
+                            data-icon="arrow_forward">arrow_forward</span>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+                    <!-- Large Feature -->
+                    <div
+                        class="md:col-span-2 md:row-span-2 relative group rounded-3xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all">
+                        <img alt="Classic Porsche" class="w-full h-full object-cover"
+                            data-alt="Vintage black classic Porsche 911 parked in a minimalist white architectural courtyard with clean lines"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6hnwDFOWyUEMJezqaPLSGpHf4NXmMAtVFQ48uZLlLavpRQ1he4B4ltmrxfyxUIMD76B3EZJKptOfFc4BCEV_ZoJrmPNoaKSwNzjEpZpVZrudfW3hVSRCZoAxF5CinQfdWxGC8q3w0ttKQLLI_-ReYfj7cMeqAkWksCwXSDf3nAEdF6tp4N12kiCLwSCGr_PHvimJaupX817ZXtE2SqaNdJ3uxx67wNTeqNbxuxKFALEQ9NC7925iZweFU2J7ubX3pqOH7bOVGerfG" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-0 p-8 text-white">
+                            <span
+                                class="bg-tertiary px-3 py-1 rounded-full text-[10px] font-bold uppercase mb-4 inline-block">Curated
+                                Classics</span>
+                            <h3 class="text-3xl font-headline font-bold mb-2">Timeless Performance</h3>
+                            <p class="text-white/70 text-sm max-w-xs">Icons that never go out of style, restored to
+                                perfection.</p>
+                        </div>
+                    </div>
+                    <!-- Wide Card -->
+                    <div
+                        class="md:col-span-2 relative group rounded-3xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all">
+                        <img alt="EV Interior" class="w-full h-full object-cover"
+                            data-alt="Interior of a luxury modern electric vehicle with large panoramic screens and premium leather upholstery"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfgY2sdPclGUYS0F2J5Pi7rfkrqivqxujEGOvTN2GlPxlYsB1Pxt_5K6viqOylTQuNGL9APMvsUoWA8kp7IyKYhJRLZU07NcIJzpmDsYjve2eSBDuus2OittBhH9dl9E3Pj2PWO_S0GH1mYxXcWj90nuLi8SJqeR-vZQ_pa79oDcVpTV7m1XccIH7JZLL2u9Dp2oNdrpqx02Lkcw3EsPeNAbMfpL_M6THejA1-wm0GIA4Luukx8IAQlACg2hFo9qeA-Q-zNZOJLxAw" />
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors"></div>
+                        <div
+                            class="absolute inset-0 flex flex-col justify-center items-center text-center p-6 text-white">
+                            <h3 class="text-2xl font-headline font-bold mb-2">Electric Future</h3>
+                            <p class="text-sm font-medium opacity-80">Experience the next generation of drive.</p>
+                        </div>
+                    </div>
+                    <!-- Small Square 1 -->
+                    <div
+                        class="relative group rounded-3xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all">
+                        <img alt="Supercar" class="w-full h-full object-cover"
+                            data-alt="Side profile of a bright orange supercar on a desert road at sunset"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnpOsDQ2aqWHvr4aowMbw4_i1JsHpg0kZT4JN6NrlUIIJOy5g6RSZvmP5wYztynNewXbhk85R2iErHFcJH0q8Ad97ltRZE3sIE_3XifYGWyxiwBEysU42FW4juK6bZwPTnV-aZWfFKII4wj3asSxtXeHzF1t9e-Jz-G1uuqFzqU7Zix89C7UiiMy7fsvws2loCIpFb06KjGqW1ao4z_yt-OMNKlPop22Yz3lpZmMlwWRQUka-dUYe7a3jO6OdxpcftZz5e5pjQrRuF" />
+                        <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md p-3 rounded-2xl">
+                            <p class="text-xs font-bold text-center text-primary">Track Ready</p>
+                        </div>
+                    </div>
+                    <!-- Small Square 2 -->
+                    <div
+                        class="relative group rounded-3xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-700 p-6 flex flex-col justify-between">
+                            <span class="material-symbols-outlined text-white text-3xl" data-icon="bolt">bolt</span>
+                            <div>
+                                <h4 class="text-white font-headline font-bold text-xl">Sell with Ease</h4>
+                                <p class="text-white/70 text-xs mt-2">Get an instant offer for your vehicle within
+                                    minutes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Listing Preview: The "Showroom" Cards -->
+        <section class="py-24 px-6 bg-surface">
+            <div class="container mx-auto">
+                <div class="flex items-center justify-between mb-12">
+                    <h2 class="text-3xl font-headline font-extrabold tracking-tight">Recent Arrivals</h2>
+                    <div class="flex gap-2">
+                        <button
+                            class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-white transition-colors">
+                            <span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+                        </button>
+                        <button
+                            class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-white transition-colors">
+                            <span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Car Card 1 -->
+                    <div
+                        class="bg-surface-container-lowest rounded-[1.5rem] overflow-hidden group hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="h-64 relative overflow-hidden">
+                            <img alt="White Luxury Car"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Sleek white Italian luxury car parked on a coastal road during golden hour"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGH0fgymKFpEo15OXJfKZfimjUqhsUiowV0SMyOlVmNtSTKNy0cpMBipBXgK52nR3nIrhmc3_YBU2uidVZxKeRtnwDm_FHj8SF1pO5MEs1uQqNu0lHXsVs2WiJ5nJyGjXiRts9JEtm4KuumSwFF71UtJM1VKPs9ncgvhx1pj6SgxR1VUtX8vbdf-ctwAmDjkbhlToxMbQA9QyvU9Ih1AT0I-7S0vNzdGHFu5ide8RBNJ_8QgrYBY_Msh-0B-oKQhbBgHli0Y63235n" />
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-primary">
+                                NEW LISTING</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-xl font-headline font-bold">Ferrari Roma</h3>
+                                    <p class="text-on-surface-variant text-sm">2023 • 1,200 miles</p>
+                                </div>
+                                <span class="text-xl font-black text-primary">$245,000</span>
+                            </div>
+                            <!-- Spec Grid -->
+                            <div class="grid grid-cols-2 gap-3 mb-6">
+                                <div class="bg-surface-container-low p-2 rounded-lg flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm text-primary"
+                                        data-icon="settings_input_component">settings_input_component</span>
+                                    <span
+                                        class="text-[11px] font-bold font-label text-on-surface-variant">AUTOMATIC</span>
+                                </div>
+                                <div class="bg-surface-container-low p-2 rounded-lg flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm text-primary"
+                                        data-icon="local_gas_station">local_gas_station</span>
+                                    <span
+                                        class="text-[11px] font-bold font-label text-on-surface-variant">GASOLINE</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full py-3 bg-surface-container-high hover:bg-primary hover:text-white transition-colors font-bold rounded-xl text-sm">View
+                                Details</button>
+                        </div>
+                    </div>
+                    <!-- Car Card 2 -->
+                    <div
+                        class="bg-surface-container-lowest rounded-[1.5rem] overflow-hidden group hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="h-64 relative overflow-hidden">
+                            <img alt="Silver SUV"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Silver luxury SUV parked in a snowy mountain forest with trees in the background"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBBQDBotpzAFKGU6wUxOKJaIelkLoE6orafZT3VmAENKrkkA0XXSBodlu7IIBUOoeJCTB7JuYuQ-qKXWgCsruMv7CCx6LM3xEp7TYe26c1dCSdwZunZF011Dck1GRDVGsPChuP1xR0LscWtbF0_LALfVq2oPhcUV8z_SS5JeZqcHy9Cghyi--D6MAwFc27LsLwX09wuaUMzpRC_V0QGbOmZupNd3cKICCL1TIT57ELnkgOTUkitipWZANJWasBn9IL4MViCMV69R1w" />
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-xl font-headline font-bold">Range Rover Sport</h3>
+                                    <p class="text-on-surface-variant text-sm">2024 • Brand New</p>
+                                </div>
+                                <span class="text-xl font-black text-primary">$110,000</span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3 mb-6">
+                                <div class="bg-surface-container-low p-2 rounded-lg flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm text-primary"
+                                        data-icon="settings_input_component">settings_input_component</span>
+                                    <span
+                                        class="text-[11px] font-bold font-label text-on-surface-variant">AUTOMATIC</span>
+                                </div>
+                                <div class="bg-surface-container-low p-2 rounded-lg flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm text-primary"
+                                        data-icon="bolt">bolt</span>
+                                    <span class="text-[11px] font-bold font-label text-on-surface-variant">HYBRID</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full py-3 bg-surface-container-high hover:bg-primary hover:text-white transition-colors font-bold rounded-xl text-sm">View
+                                Details</button>
+                        </div>
+                    </div>
+                    <!-- Car Card 3 -->
+                    <div
+                        class="bg-surface-container-lowest rounded-[1.5rem] overflow-hidden group hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="h-64 relative overflow-hidden">
+                            <img alt="Blue Sedan"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                data-alt="Metallic blue luxury sedan cruising on a modern highway at night with city lights blurred"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhW1Tl3w6BxCq-8Jlr76rdSdIEh6HJxs2qrnuwxX1WU6cD27ceoWMTilmq6VVA6gqma9QOyVi6fTkebeadohSXu1w-bi79lIK2y7kVCG8HlgRAtz6aLVg88ZXhnfNOjteA_z0cQLxcPEkGngFHGnwKx3jHUd5tEWXhILLvBcyqiYdIARZHwJZIbMDYV15zzAzhWe4TG5A7hzl8XpFpyqTa47kRyVW2TZ60OyCN6AxKbftkVX8WqWBJH7jotiJbGaT_qwdCrf7nsBoZ" />
+                            <div
+                                class="absolute top-4 right-4 bg-tertiary px-3 py-1 rounded-full text-[10px] font-bold text-white">
+                                PRICE DROP</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-xl font-headline font-bold">BMW M8</h3>
+                                    <p class="text-on-surface-variant text-sm">2022 • 8,500 miles</p>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-xl font-black text-primary block">$148,000</span>
+                                    <span
+                                        class="text-[10px] line-through text-on-surface-variant font-bold">$155,000</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3 mb-6">
+                                <div class="bg-surface-container-low p-2 rounded-lg flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm text-primary"
+                                        data-icon="settings_input_component">settings_input_component</span>
+                                    <span class="text-[11px] font-bold font-label text-on-surface-variant">MANUAL</span>
+                                </div>
+                                <div class="bg-surface-container-low p-2 rounded-lg flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-sm text-primary"
+                                        data-icon="local_gas_station">local_gas_station</span>
+                                    <span
+                                        class="text-[11px] font-bold font-label text-on-surface-variant">GASOLINE</span>
+                                </div>
+                            </div>
+                            <button
+                                class="w-full py-3 bg-surface-container-high hover:bg-primary hover:text-white transition-colors font-bold rounded-xl text-sm">View
+                                Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- CTA Section -->
+        <section class="py-24 px-6">
+            <div class="container mx-auto">
+                <div
+                    class="bg-primary-container rounded-[2.5rem] p-12 relative overflow-hidden flex flex-col items-center text-center">
+                    <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -mr-48 -mt-48 blur-3xl"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 rounded-full -ml-32 -mb-32 blur-2xl">
+                    </div>
+                    <h2
+                        class="text-4xl md:text-5xl font-headline font-extrabold text-on-primary mb-6 max-w-2xl relative z-10">
+                        Ready to join the kinetic movement?
+                    </h2>
+                    <p class="text-on-primary-container text-lg max-w-xl mb-10 relative z-10">
+                        Whether you're looking for your next masterpiece or ready to list your current ride, we've got
+                        the tools to make it happen.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4 relative z-10">
+                        <button
+                            class="px-10 py-4 bg-white text-primary font-bold rounded-xl shadow-lg hover:shadow-xl transition-all active:scale-95">Get
+                            Started</button>
+                        <button
+                            class="px-10 py-4 bg-primary text-white font-bold rounded-xl border border-white/20 hover:bg-primary/80 transition-all active:scale-95">Learn
+                            More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav
+        class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl border-t border-slate-100 dark:border-slate-800">
+        <a class="flex flex-col items-center justify-center bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-2xl px-5 py-2 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="home">home</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Home</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-400 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="directions_car">directions_car</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Explore</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-400 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Sell</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-600 dark:hover:text-blue-400 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+            <span class="font-inter text-[11px] font-semibold uppercase tracking-wider mt-1">Profile</span>
+        </a>
+    </nav>
+    <!-- Footer (Desktop Only) -->
+    <footer class="hidden md:block py-16 bg-surface-container-high mt-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-4 gap-12">
+                <div class="col-span-1">
+                    <h2 class="text-2xl font-black italic tracking-tighter text-blue-800 font-headline mb-6">KINETIC
+                    </h2>
+                    <p class="text-on-surface-variant text-sm leading-relaxed">
+                        The ultimate destination for automotive art. Curating the finest vehicles for enthusiasts who
+                        value speed, simplicity, and reliability.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 font-label">Platform</h4>
+                    <ul class="space-y-4 text-sm text-on-surface-variant">
+                        <li><a class="hover:text-primary transition-colors" href="#">Browse Marketplace</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Electric Showroom</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Classic Curations</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Sell Your Vehicle</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 font-label">Company</h4>
+                    <ul class="space-y-4 text-sm text-on-surface-variant">
+                        <li><a class="hover:text-primary transition-colors" href="#">Our Vision</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contact Concierge</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Privacy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 font-label">Newsletter</h4>
+                    <p class="text-xs text-on-surface-variant mb-4 font-body">Get exclusive arrivals in your inbox.</p>
+                    <div class="flex gap-2">
+                        <input
+                            class="bg-white border-none rounded-lg text-sm px-4 flex-1 focus:ring-2 focus:ring-primary"
+                            placeholder="Email address" type="email" />
+                        <button class="bg-primary text-white p-2 rounded-lg">
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="mt-16 pt-8 border-t border-outline-variant/10 text-center text-xs text-on-surface-variant font-medium">
+                © 2024 KINETIC Automotive Gallery. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
